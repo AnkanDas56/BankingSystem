@@ -13,6 +13,19 @@
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.6.4</version>
+                <configuration>
+                    <mainClass>in.nexus_auth.banking_system.backend.BankingMain</mainClass>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
      <dependencies>
          <dependency>
              <groupId>org.springframework.boot</groupId>
@@ -49,7 +62,15 @@
              <artifactId>MyLoginWeb</artifactId>
              <version>1.0.1</version>
          </dependency>
-
-
      </dependencies>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>jboss-maven2-release-repository</id>
+            <url>file://~/.m2/repository</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
