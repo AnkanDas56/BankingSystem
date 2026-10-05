@@ -6,7 +6,7 @@
 
     <groupId>in.nexus_auth.banking_system.backend</groupId>
     <artifactId>Banking_system_backend</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
@@ -23,6 +23,12 @@
                     <mainClass>in.nexus_auth.banking_system.backend.BankingMain</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>4.1.0</version>
+            </plugin>
+
 
         </plugins>
     </build>
@@ -32,6 +38,12 @@
              <artifactId>spring-boot-starter-thymeleaf</artifactId>
              <version>4.1.0</version>
          </dependency>
+         <dependency>
+             <groupId>jakarta.persistence</groupId>
+             <artifactId>jakarta.persistence-api</artifactId>
+             <version>3.2.0</version>
+         </dependency>
+
          <dependency>
              <groupId>org.springframework.security</groupId>
              <artifactId>spring-security-core</artifactId>
@@ -62,6 +74,20 @@
              <artifactId>MyLoginWeb</artifactId>
              <version>1.0.1</version>
          </dependency>
+         <!-- 1. Spring Data JPA: Provides the repositories and Hibernate ORM engine-->
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-data-jpa</artifactId>
+             <version>4.1.0</version>
+         </dependency>
+         <!-- 2. PostgreSQL Driver: Allows Java to talk directly to your psql server -->
+         <dependency>
+             <groupId>org.postgresql</groupId>
+             <artifactId>postgresql</artifactId>
+             <version>42.7.5</version>
+             <scope>runtime</scope>
+         </dependency>
+
      </dependencies>
     <pluginRepositories>
         <pluginRepository>

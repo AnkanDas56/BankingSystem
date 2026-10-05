@@ -1,29 +1,44 @@
 package in.nexus_auth.banking_system.backend;
 
 import com.MyLoginWeb.Person;
+import io.javalin.http.EnhanceYourCalmResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.webmvc.autoconfigure.WebMvcProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+import javax.sound.midi.SoundbankResource;
+import java.util.Scanner;
 
 @SpringBootApplication
 public class BankingMain {
-    public static void main(String[] args){
-        BankingLoginSystem loginSystem = new BankingLoginSystem();
-        TransactionManager mgr = new TransactionManager();
-        Person JohnTheDon = new Person("JohnTheDon","KaunBanegaDon_JohnBanegaDon",null, (long) (Math.random()*500000)+100000);
-        Person Ankan_Das =new Person("AnkanDas56", "ankubanku",null, (long) (Math.random() * 1000000) +500000) ;
-        loginSystem.addUser(Ankan_Das);
-        loginSystem.addUser(JohnTheDon);
-        if(loginSystem.loginByPassword("ankubanku","AnkanDas56")){
-            System.out.println("Before Transaction");
-            System.out.println(loginSystem.getUserBio("ankubanku"));
-        }
-        if(loginSystem.loginByPassword(JohnTheDon.Password(),JohnTheDon.UserName())){
-            mgr.transact(JohnTheDon,Ankan_Das,25999,loginSystem);
-            System.out.println("After Transaction (For some valuable 'MSG' ;) )");
-        }
+    @Autowired
+    private static BankingLoginSystem loginSystem;
 
-        if(loginSystem.loginByPassword("ankubanku","AnkanDas56")){
-            System.out.println(loginSystem.getUserBio("ankubanku"));
+    public static void main(String[] args){
+       ApplicationContext context= SpringApplication.run(BankingMain.class,args);
+       loginSystem = context.getBean(BankingLoginSystem.class);
+        Person person= new Person("AnkanDas56","ankandas@12",Currencies.INR.name(), (int)(Math.random()*50000));
+        loginSystem.updateUser(person,null);
+        if(loginSystem.loginByPassword(person.Password(),person.UserName())){
+            System.out.println("Welcome to your very own bank account respected sir!");
+            System.out.println("Please select an option- Transaction(type 'T') balance check (type 'B')");
+            char usr_selection = new Scanner(System.in).next().charAt(0);
+            if(usr_selection=='B') {
+                System.out.println("You have selected balance check, lets see, \nyour balance is - " + loginSystem.getUserInfo(person.UserName()).getUsr_balance());
+            }
         }
-        //SpringApplication.run(BankingMain.class,args);
     }
+   @Bean
+    static CommandLineRunner run(BankingLoginSystem loginSystem){
+        return args -> {
+        };
+    }
+
 }
