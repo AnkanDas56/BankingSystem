@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>in.nexus_auth.banking_system.backend</groupId>
-    <artifactId>Banking_system_backend</artifactId>
+    <groupId>in.nexus_auth.banking_system</groupId>
+    <artifactId>Banking_system</artifactId>
     <version>1.0.1</version>
 
     <properties>
@@ -20,7 +20,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.6.4</version>
                 <configuration>
-                    <mainClass>in.nexus_auth.banking_system.backend.BankingMain</mainClass>
+                    <mainClass>in.nexus_auth.banking_system.BankingMain</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -86,6 +86,11 @@
              <artifactId>postgresql</artifactId>
              <version>42.7.5</version>
              <scope>runtime</scope>
+         </dependency>
+         <dependency>
+             <groupId>org.thymeleaf</groupId>
+             <artifactId>thymeleaf</artifactId>
+             <version>3.1.5.RELEASE</version>
          </dependency>
 
      </dependencies>

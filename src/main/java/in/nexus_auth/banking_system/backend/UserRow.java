@@ -29,17 +29,17 @@ public class UserRow {
      this.usr_balance=usr_balance;
     }
 
-    protected String getUsername(){return this.username;}
+    public String getUsername(){return this.username;}
     protected void setUsername(String username){this.username=username;}
 
     protected String getPassword(){return this.Password;}
-    protected void setPassword(String Password){}
+    public void setPassword(String Password){}
 
-    protected double getUsr_balance(){
+    public double getUsr_balance(){
         return this.usr_balance;
     }
 
-    protected String getTransaction_history(){
+    public String getTransaction_history(){
         return this.transaction_history;
     }
 }

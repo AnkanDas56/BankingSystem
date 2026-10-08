@@ -19,11 +19,7 @@ public class BankingLoginSystem extends LoginSystem{
     public boolean loginByPassword(String Password, String UserName) {
        return this.getEncoder().matches(Password,this.usrRepo.findById(UserName).get().getPassword());
     }
-
-    protected String getUserList1(){
-     return super.getUserListAsString();
-    }
-    protected void updateUser(Person user,@Nullable String transaction_slip){
+    public void updateUser(Person user,@Nullable String transaction_slip){
         this.usrRepo.save(new UserRow(user.UserName(),this.getEncoder().encode(user.Password()),user.bio(),user.balance(),transaction_slip));
     }
     public UserRow getUserInfo(String username){
