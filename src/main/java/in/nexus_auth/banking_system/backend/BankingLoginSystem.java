@@ -3,15 +3,16 @@ package in.nexus_auth.banking_system.backend;
 import com.MyLoginWeb.LoginSystem;
 import com.MyLoginWeb.Person;
 import jakarta.annotation.Nullable;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 @Service
 public class BankingLoginSystem extends LoginSystem{
-    private final UsrRepo usrRepo;;
+    private final UsrRepo usrRepo;
 
     public void addUser(Person user, @Nullable String transaction_slip) {
+        System.out.println("USER ADDITION REACHED!!! NEW USER GETTING ADDED!!");
         this.usrRepo.save(new UserRow(user.UserName(),this.getEncoder().encode(user.Password()),user.bio(),user.balance(),transaction_slip));
     }
 
@@ -33,5 +34,10 @@ public class BankingLoginSystem extends LoginSystem{
     @Autowired
     public BankingLoginSystem(UsrRepo usrrepo){
      this.usrRepo=usrrepo;
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("Instance initialized!");
     }
 }

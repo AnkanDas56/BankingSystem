@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa Bank | Welcome</title>
+<link rel="stylesheet" href="/static/css/bank.css">
+</head>
+<body>
+<div class="page">
+<nav class="nav">
+  <a class="brand" href="/"><span class="logo">N</span>NEXA BANK</a>
+  <span class="nav-tag">SECURE DIGITAL BANKING</span>
+</nav>
+
+<main>
+<section class="hero">
+<div class="container hero-grid">
+<div class="reveal">
+<div class="eyebrow">Your financial command centre</div>
+<h1>Your bank account.<br><span style="color:var(--accent)">Welcome.</span></h1>
+<p>Create or access your account through a clean, secure banking experience. Your information stays connected to the Spring backend you already built.</p>
+</div>
+<div class="panel hero-card reveal">
+<div><div class="mini">NEXA / ACCOUNT ACCESS</div><h2>Start securely.</h2></div>
+<div><div class="mini">Protected connection</div><div class="big">24 / 7</div></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="panel form-wrap reveal">
+<div class="section-head">
+<div class="eyebrow">Account access</div><h2>Enter your details.</h2><p>Use the same fields your Spring controller already receives.</p>
+</div>
+<form action="/username" method="post" class="form-grid">
+<div class="field"><label for="username">Username</label><input id="username" type="text" name="username" autocomplete="username" required></div>
+<div class="field"><label for="password">Password</label><input id="password" type="text" name="password" autocomplete="current-password" required></div>
+<div class="field"><label for="currency">Preferred currency</label><input id="currency" type="text" name="currency" placeholder="e.g. INR" required></div>
+<label class="check"><input type="checkbox" name="isNew"> I am a new customer</label>
+<button class="btn" type="submit">Continue securely →</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="container">Nexa Bank · Secure by design · Built for modern banking</div></footer>
+</div>
+<script src="/static/js/bank.js"></script>
+</body>
+</html>

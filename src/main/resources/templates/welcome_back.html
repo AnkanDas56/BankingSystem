@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Back | Nexa Bank</title>
+<link rel="stylesheet" href="/static/css/bank.css">
+</head>
+<body>
+<div class="page">
+<nav class="nav">
+  <a class="brand" href="/"><span class="logo">N</span>NEXA BANK</a>
+  <span class="nav-tag">SECURE DIGITAL BANKING</span>
+</nav>
+
+<main class="welcome">
+<section class="container">
+<div class="reveal">
+<div class="eyebrow">Secure account portal</div>
+<h1>Looks like you are <span th:text="${username}"></span></h1>
+<p style="font-size:1.15rem;color:var(--muted);max-width:700px">Welcome back. Your account is ready — what would you like to do?</p>
+</div>
+<div class="hero-grid" style="margin-top:55px">
+<div class="card reveal" style="padding:34px">
+<div class="eyebrow">Account overview</div>
+<h2>Get your stats.</h2>
+<p style="color:var(--muted)">Review your balance and transaction history in one place.</p>
+<a href="/userStats" class="btn">View account stats →</a>
+</div>
+<div class="card reveal" style="padding:34px">
+<div class="eyebrow">Payments</div>
+<h2>Make a transaction.</h2>
+<p style="color:var(--muted)">Continue to the transaction area to manage your banking activity.</p>
+<a href="/transaction" class="btn btn-light">Transact →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="container">Nexa Bank · Secure by design · Built for modern banking</div></footer>
+</div>
+<script src="/static/js/bank.js"></script>
+</body>
+</html>
