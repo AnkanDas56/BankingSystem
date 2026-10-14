@@ -35,11 +35,11 @@ public class UserRow {
     protected String getPassword(){return this.Password;}
     protected void setPassword(String Password){}
 
-    protected double getUsr_balance(){
+    public double getUsr_balance(){
         return this.usr_balance;
     }
 
-    protected String getTransaction_history(){
+    public String getTransaction_history(){
         return this.transaction_history;
     }
 }
