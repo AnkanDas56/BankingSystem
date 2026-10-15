@@ -1,0 +1,50 @@
+html {
+    block-size: 100%;
+    background: linear-gradient(45deg, black, rgb(161, 64, 206));
+}
+
+.Home_heading{
+    color: aliceblue;
+    position: absolute;
+    font-family: 'Arial Narrow Bold', Impact;
+    top: 0%;
+    left: 45%;
+}
+
+.input_form {
+    max-height: 50%;
+    max-width: 50%;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    color: aliceblue;
+}
+
+.input_form input {
+    height: 55%;
+    font-size: 30px;
+    width: 100%;
+    border-radius: 0.7rem;
+    background: linear-gradient(45deg , rgb(161, 64, 206), black);
+}
+
+.input_form .isNew input {
+    height: 15%;
+    position: absolute;
+    top:100%
+}
+
+.input_form button {
+    position: absolute;
+    top: 120%;
+}
+
+.input_form .isNew a {
+    position: absolute;
+    left: 7%;
+    top: 102%;
+}
+
+.input_form input:hover , .input_form input:after{
+   box-shadow: 20px aqua;
+}

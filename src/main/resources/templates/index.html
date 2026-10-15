@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexa Bank | Welcome</title>
-<link rel="stylesheet" href="static/bank.css">
+<link rel="stylesheet" th:href="@{/css/bank.css}" href="static/bank.css">
 </head>
 <div class="Home_heading">
   <h1>Helloworld</h1>
@@ -18,10 +18,11 @@
 <br>
 <input id="currency" type="text" name="currency" placeholder="e.g. INR" required>
 <br>
-<input type="checkbox" name="isNew"> I am a new customer
-<br>
+<div class="isNew">
+  <input type="checkbox" name="isNew"><a> I am a new customer</a> 
+</div>
 <button class="btn" type="submit">Continue securely →</button>
 </form></div>
-<script src="static/bank.js"></script>
+<script th:src="@{/js/bank.js}" src="static/bank.js"></script>
 </body>
 </html>
