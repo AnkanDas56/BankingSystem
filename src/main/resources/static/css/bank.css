@@ -1,32 +1,90 @@
 html {
     block-size: 100%;
-    background: linear-gradient(45deg, black, rgb(161, 64, 206));
+    background:linear-gradient(rgb(17, 1, 42), rgb(51, 0, 96));
 }
 
-.Home_heading{
+.Home_heading h2{
     color: aliceblue;
     position: absolute;
-    font-family: 'Arial Narrow Bold', Impact;
-    top: 0%;
+    font-family: Impact;
+    font-size: 30px;
+    top: 20%;
     left: 45%;
 }
-
-.input_form {
-    max-height: 50%;
+.Home_heading h1{
+    color:aliceblue;
+    position: absolute;
+    font-family: Impact;
+    font-size: 35px;
+    top:10%;
+    left:42.25%
+}
+.Home_heading h1 p{
+   color: aqua;
+   position: absolute;
+   width: 250%;
+   left:0%;
+   top:-7.5%;
+}
+.Optn_select{
+    position: absolute;
+    top:50%;
+    font-size: 25px;
+    left:30%;
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.Optn_select button{
+   display:flex;
+   flex-direction: column;
+   font-family: Impact , Arial ;
+   background-color: green;
+   border-radius: 0.5rem;
+   border:0px;
+   width:100%;
+   height:40px;
+   font-size: 25px;
+   text-align: center;
+   box-shadow: 10px white;
+}
+.Optn_select button:after{
+    x: -5px;
+    y:-5px;
+    transition: 2s;
+}
+.Optn_select .Btn_text{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top:-30%;
+}
+.input_form form{
+    max-height: 500px;
     max-width: 50%;
+    min-height: 25px;
     position: absolute;
     top: 40%;
     left: 40%;
     color: aliceblue;
+    display: flex;
+    flex-direction:column;
+    gap:5px;
 }
 
 .input_form input {
-    height: 55%;
-    font-size: 30px;
+    font-size: 200%;
     width: 100%;
     border-radius: 0.7rem;
-    background: linear-gradient(45deg , rgb(161, 64, 206), black);
-}
+    background: rgb(58, 58, 58);
+    border:0px;
+    display:flex;
+    color: rgb(221, 221, 221);
+    font-family: Impact;
+    font-weight: 50;
+    flex-direction: column;   
+   }
 
 .input_form .isNew input {
     height: 15%;
@@ -34,9 +92,17 @@ html {
     top:100%
 }
 
-.input_form button {
+.input_form form button {
     position: absolute;
     top: 120%;
+    background-color:rgb(29, 143, 16);
+   border-radius:0.5rem;
+    height:30px;
+    width:100%;
+    transition: 2s;
+}
+.input_form button{
+    box-shadow:rgb(29, 143, 16) 20px;
 }
 
 .input_form .isNew a {
@@ -45,6 +111,6 @@ html {
     top: 102%;
 }
 
-.input_form input:hover , .input_form input:after{
+.input_form input:hover{
    box-shadow: 20px aqua;
 }

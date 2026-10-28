@@ -4,25 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexa Bank | Welcome</title>
-<link rel="stylesheet" th:href="@{/css/bank.css}" href="static/bank.css">
+<link rel="stylesheet" th:href="@{/css/bank.css}" href="../static/css/bank.css">
 </head>
 <div class="Home_heading">
-  <h1>Helloworld</h1>
+  <h1>Nexa Bank</h1>
+  <br>
+  <h2>Login Or Sign Up!</h2>
 </div>
 <body>
 <div class="input_form">
 <form action="/username" method="post" class="form-grid">
-<input id="username" type="text" name="username" autocomplete="username" placeholder="Username" required>
-<br>
-<input id="password" type="password" name="password" autocomplete="current-password" placeholder="Password" required>
-<br>
-<input id="currency" type="text" name="currency" placeholder="e.g. INR" required>
-<br>
+<input id="username" type="text" name="username" autocomplete="username" placeholder="      Username" required>
+<input id="password" type="password" name="password" autocomplete="current-password" placeholder="      Password" required>
+<input id="currency" type="text" name="currency" placeholder="      Currency" required>
 <div class="isNew">
-  <input type="checkbox" name="isNew"><a> I am a new customer</a> 
+  <input type="checkbox" name="isNew"><a>New here?</a>
 </div>
 <button class="btn" type="submit">Continue securely →</button>
 </form></div>
-<script th:src="@{/js/bank.js}" src="static/bank.js"></script>
+<script th:src="@{/js/bank.js}    " src="../static/js/bank.js"></script>
 </body>
 </html>

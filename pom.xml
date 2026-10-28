@@ -20,15 +20,38 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.6.4</version>
                 <configuration>
-                    <mainClass>in.nexus_auth.banking_system.backend.BankingMain</mainClass>
+                    <mainClass>in.nexus_auth.banking_system.BankingMain</mainClass>
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>in.nexus_auth.banking_system.BankingMain</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>3.1.4</version>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot</artifactId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <version>4.1.0</version>
             </plugin>
-
 
         </plugins>
     </build>
@@ -86,6 +109,11 @@
              <artifactId>postgresql</artifactId>
              <version>42.7.5</version>
              <scope>runtime</scope>
+         </dependency>
+         <dependency>
+             <groupId>com.google.code.gson</groupId>
+             <artifactId>gson</artifactId>
+             <version>2.13.1</version>
          </dependency>
 
      </dependencies>

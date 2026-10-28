@@ -3,22 +3,22 @@ import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "UserRows")
 public class UserRow {
     @Id
     @Column(name = "username",nullable=false,unique = true)
     private String username;
 
-    @Column(unique = true,nullable = false,name = "password")
+    @Column(unique = false,nullable = false,name = "password")
     private String Password;
 
-    @Column(unique = true,nullable = false,name = "usr_currency")
+    @Column(unique = false,nullable = false,name = "usr_currency")
     private String usr_currency;
 
-    @Column(name = "usr_balance",nullable = false,unique = true)
+    @Column(name = "usr_balance",nullable = false,unique = false)
     private double usr_balance;
 
-    @Column(name = "transaction_history",nullable = true,unique = true)
+    @Column(name = "transaction_history",nullable = true,unique = false)
     private String transaction_history;
     public UserRow(){}
 
