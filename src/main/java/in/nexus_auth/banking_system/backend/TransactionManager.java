@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class TransactionManager {
     private UsrRepo repo;
  protected void transact(Person from, Person to, double amount, BankingLoginSystem blsys){
-       if((from.balance()-amount)>=0) {
+       if((from.balance()-amount)>=0&&amount>0) {
            String transaction_history= this.repo.findById(from.UserName()).get().getTransaction_history();
            from = new Person(from.UserName(), from.Password(), from.bio(), from.balance() - amount);
            blsys.updateUser(from, transaction_history+" \nDEBITED " + amount + " " + from.bio() + " TO TRANSACT TO " + to.UserName());
@@ -24,7 +24,7 @@ public class TransactionManager {
            from=null;
            to=null;
            transaction_history=null;
-       }
+       }else System.out.println("Sorry, please check your requested transaction amount and your bank balance");
  }
  @Autowired
  public TransactionManager(UsrRepo repo){
