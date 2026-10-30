@@ -22,23 +22,25 @@ public class ThController {
     }
 
     @PostMapping(value = "/username",name = "username")
-    public String username(@RequestParam(name = "username")String Username , @RequestParam(name = "password")String password , @RequestParam(name ="isNew")@Nullable Boolean isNew, @RequestParam(name = "currency")String bio,Model model){
+    public String username(@RequestParam(name = "username")String Username , @RequestParam(name = "password")String password , @RequestParam(name ="isNew")@Nullable Boolean isNew, @RequestParam(name = "currency")String bio,Model model) {
         System.out.println("CONTROLLER REACHED!!!");
-        if(isNew==null){
-           try{
-               this.blsys.loginByPassword(password,Username);
-               model.addAttribute("username",Username);
-               model.addAttribute("usr_balance",Double.toString(this.blsys.getUserInfo(Username).getUsr_balance()));
-               model.addAttribute("transaction_history",this.blsys.getUserInfo(Username).getTransaction_history());
-               return "welcome_back";
-           }catch(NoSuchElementException _){
-             return "sorry";
-           }
-        }else{
-            this.blsys.addUser(new Person(Username,password,bio,0),null);
-            model.addAttribute("username",Username);
-            model.addAttribute("usr_balance",Double.toString(0));
-            model.addAttribute("transaction_history"," ---------- EMPTY -----------  ");
+        if (isNew == null) {
+            try {
+                if (this.blsys.loginByPassword(password, Username)) {
+                    model.addAttribute("username", Username);
+                    model.addAttribute("usr_balance", Double.toString(this.blsys.getUserInfo(Username).getUsr_balance()));
+                    model.addAttribute("transaction_history", this.blsys.getUserInfo(Username).getTransaction_history());
+                    return "welcome_back";
+                }else
+                {return "sorry";}
+            } catch (NoSuchElementException _) {
+                return "sorry";
+            }
+        } else {
+            this.blsys.addUser(new Person(Username, password, bio, 0), null);
+            model.addAttribute("username", Username);
+            model.addAttribute("usr_balance", Double.toString(0));
+            model.addAttribute("transaction_history", " ---------- EMPTY -----------  ");
             return "welcome";
         }
     }

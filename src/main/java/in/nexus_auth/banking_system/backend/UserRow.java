@@ -27,6 +27,7 @@ public class UserRow {
      this.Password=password;
      this.usr_currency=usr_currency;
      this.usr_balance=usr_balance;
+     this.transaction_history = transaction_history;
     }
 
     protected String getUsername(){return this.username;}
